@@ -64,6 +64,7 @@ public class PermissionSensitiveCacheServlet extends SlingSafeMethodsServlet {
             log.debug( "Checking access for URI {}", requestUri );
 
             if( isUriValid( requestUri ) ){
+                log.debug("Accessing the resource using the following resource Id {}", request.getResourceResolver().getUserID());
                 Resource requestedResource = resourceResolver.resolve( request, requestUri );
 
                 if( !ResourceUtil.isNonExistingResource( requestedResource ) ){
